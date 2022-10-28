@@ -1,0 +1,21 @@
+name: Auto publish Github repository to cPanel
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to cPanel
+        id: deploy
+        uses: pinkasey/cpanel-deploy-action@v1.0.0
+        with:
+          hostname: 'https://staging.tjartgallery.ng'
+          repository_root: '/home/tjartga2/staging.tjartgallery.ng'
+          branch: main
+          cpanel_token: '${{ secrets.CPANEL_TOKEN }}'
+      - name: echo deploy-duration
+        run: echo "Deployment took ${{ steps.deploy.outputs.duration }} milliseconds"
