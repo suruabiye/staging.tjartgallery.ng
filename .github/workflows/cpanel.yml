@@ -13,7 +13,7 @@ jobs:
         id: deploy
         uses: pinkasey/cpanel-deploy-action@v1.0.0
         with:
-          hostname: 'https://staging.tjartgallery.ng'
+          hostname: 'https://tjartgallery.ng'
           cpanel_username: 'tjartga2'
           repository_root: '/home/tjartga2/staging.tjartgallery.ng'
           branch: main
