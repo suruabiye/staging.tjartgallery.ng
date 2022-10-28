@@ -15,7 +15,7 @@ jobs:
         with:
           hostname: 'https://tjartgallery.ng'
           cpanel_username: 'tjartga2'
-          repository_root: '/home/tjartga2/staging.tjartgallery.ng'
+          repository_root: '/home/tjartga2/staging.tjartgallery.ng/'
           branch: main
           cpanel_token: '${{ secrets.CPANEL_TOKEN }}'
       - name: echo deploy-duration
