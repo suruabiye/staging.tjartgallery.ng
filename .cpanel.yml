@@ -1,0 +1,5 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/tjartga2/staging.tjartgallery.ng
+    - /bin/cp -a * $DEPLOYPATH
+    - git fetch && git pull
