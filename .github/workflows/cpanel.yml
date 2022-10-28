@@ -1,9 +1,9 @@
 name: Auto publish Github repository to cPanel
 
-#on:
-#  push:
-#    branches:
-#      - main
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   deploy:
