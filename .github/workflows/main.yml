@@ -6,15 +6,17 @@ on:
       - main
 
 jobs:
-  deploy-production:
-    name: Deploy Project to PRODUCTION Server
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.1.0
+      - name: Deploy to cPanel
+        id: deploy
+        uses: pinkasey/cpanel-deploy-action@v1.0.0
         with:
-          fetch-depth: 2
-      - name: Setup Deployer to cPanel
-        uses: atymic/deployer-php-action@master
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          ssh-known-hosts: ${{ secrets.SSH_HOST }}
+          hostname: 'https://tjartgallery.ng'
+          cpanel_username: 'tjartga2'
+          repository_root: '/home/tjartga2/staging.tjartgallery.ng'
+          branch: main
+          cpanel_token: '${{ secrets.CPANEL_TOKEN }}'
+      - name: echo deploy-duration
+        run: echo "Deployment took ${{ steps.deploy.outputs.duration }} milliseconds"
